@@ -59,7 +59,14 @@ setNama(string nama)
 getNama()
 setKegiatan(Kegiatan[] kegiatan, int jumlahKegiatan)
 getKegiatan()
-getJumlahKegiatan
+addKegiatan(Kegiatan kegiatan)
+	this.kegiatan[jumlahKegiatan]=kegiatan;
+	jumlahKegiatan++
+removeKegiatan(int index)
+	kegiatan[index]=kegiatan[jumlahKegiatan-1]
+	kegiatan[jumlahKegiatan-1]=null
+	jumlahKegiatan--
+getJumlahKegiatan()
 	
 	
 	
