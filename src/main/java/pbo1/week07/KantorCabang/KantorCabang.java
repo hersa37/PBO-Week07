@@ -63,8 +63,13 @@ public class KantorCabang {
     
     @Override
     public String toString(){
-        return "{Kode Cabang: "+kodeCabang
-                +"; Pimpinan: "+pimpinan.toString();
+        String print="{";
+        for(int i=0;i<jumlahPegawai;i++){
+            print+="Pegawai: "+pegawai[i].getName()
+                    +"; Gaji: "+pegawai[i].getGaji()+"\n";
+        }
+        print+="} ";
+        return print;
     }
     
     
