@@ -13,6 +13,7 @@ package pbo1.week07.KantorCabang;
  * Informatika - Universitas Sanata Dharma
  */
 public class KantorCabang {
+    public final int MAX_PEGAWAI=100;
     
     private String kodeCabang;
     private Pegawai pimpinan;
@@ -21,8 +22,9 @@ public class KantorCabang {
            
     public KantorCabang(){
         this("",new Pegawai());
+        pegawai=new Pegawai[MAX_PEGAWAI];
     }
-    
+        
     public KantorCabang(String kode, Pegawai pimpinan){
         kodeCabang=kode;
         if(pimpinan.getJabatan().equals("pimpinan")){

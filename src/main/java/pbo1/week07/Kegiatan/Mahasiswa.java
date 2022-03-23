@@ -14,12 +14,15 @@ import java.util.Arrays;
  * Informatika - Universitas Sanata Dharma
  */
 public class Mahasiswa {
+    public static final int MAX_KEGIATAN=5;
+    
     private String nama;
     private int jumlahKegiatan;
     private Kegiatan[] kegiatan;
     
     public Mahasiswa(String nama){
         this.nama=nama;
+        kegiatan=new Kegiatan[MAX_KEGIATAN];
     }
     
     public String getNama(){
