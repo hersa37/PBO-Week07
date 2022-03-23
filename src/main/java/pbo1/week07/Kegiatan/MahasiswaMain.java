@@ -15,27 +15,35 @@ import java.util.Scanner;
  */
 public class MahasiswaMain {
     private static final int MAX_KEGIATAN=5;
+    private static final int MAX_MAHASISWA=100;
     
     public static void main(String[] args) {
         int jumlahKegiatan=5;
+        int jumlahMahasiswa=5;
         Scanner input=new Scanner(System.in);
-        Mahasiswa mhs=new Mahasiswa("Echa");
-        Kegiatan[] kg=new Kegiatan[MAX_KEGIATAN];
-        if(jumlahKegiatan>MAX_KEGIATAN) jumlahKegiatan=5;
-        mhs.setKegiatan(kg, jumlahKegiatan);
+        Mahasiswa[] mhs=new Mahasiswa[MAX_MAHASISWA];
         
-       
-        for(int i=0;i<jumlahKegiatan;i++){
-            System.out.print("Nama Kegiatan: ");
-            String namaKeg=input.next();
-            System.out.print("Point: ");
-            try{
-                int point=input.nextInt();
-                kg[i]=new Kegiatan(namaKeg,point);
-            } catch(Exception e){
-                kg[i]=new Kegiatan(namaKeg, 0);
-            }
+        if(jumlahKegiatan>MAX_KEGIATAN) jumlahKegiatan=5;
+        
+        for(int i=0;i<jumlahMahasiswa;i++){
+            System.out.print("Nama Mahasiswa: ");
+            String name=input.next();
+            mhs[i]=new Mahasiswa(name);
+            Kegiatan[] kg=new Kegiatan[MAX_KEGIATAN];
+            for(int j=0;j<jumlahKegiatan;j++){
+                System.out.print("Nama Kegiatan: ");
+                String namaKeg=input.next();
+                System.out.print("Point: ");
+                try{
+                    int point=input.nextInt();
+                    kg[j]=new Kegiatan(namaKeg,point);
+                } catch(Exception e){
+                    kg[j]=new Kegiatan(namaKeg, 0);
+                }
+            mhs[i].setKegiatan(kg, jumlahKegiatan);
         }        
+        }
+        
         mhs.toString();
     }
 }
