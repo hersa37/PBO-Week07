@@ -30,6 +30,7 @@ public class KanCabMain {
             System.out.print("Gaji: ");
             pegawai[i].setGaji(input.nextInt());          
         }
-        System.out.println(kc);
+        System.out.println(kc.toString());
     }
+    
 }

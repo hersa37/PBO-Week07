@@ -5,8 +5,6 @@
 
 package pbo1.week07.Kegiatan;
 
-import java.util.Arrays;
-
 /**
  *
  * @author echa
@@ -22,6 +20,8 @@ public class Mahasiswa {
     
     public Mahasiswa(String nama){
         this.nama=nama;
+        //Array size will always be MAX_KEGIATAN regardless of how many
+        //actual kegiatan there is
         kegiatan=new Kegiatan[MAX_KEGIATAN];
     }
     
@@ -36,7 +36,10 @@ public class Mahasiswa {
     public Kegiatan[] getKegiatan(){
         return kegiatan;
     }
-    
+    /*
+    Sets array with size of MAX_KEGIATAN
+    jumlahKegiatan stores actual non-null indices
+    */
     public void setKegiatan(Kegiatan[] kegiatan, int jumlahKegiatan){
         this.kegiatan=kegiatan;
         this.jumlahKegiatan=jumlahKegiatan;
@@ -64,7 +67,12 @@ public class Mahasiswa {
     
     @Override
     public String toString(){
-        return "{Nama: "+nama+"; Jumlah Kegiatan: "+jumlahKegiatan
-                +"; Kegiatan: "+Arrays.toString(kegiatan)+"} ";
+        String print="";
+        print+="{Nama: "+nama+"; Jumlah Kegiatan: "+jumlahKegiatan;
+        for(int i=0;i<jumlahKegiatan;i++){
+            print+=kegiatan[i].toString();
+        }
+        print+="} ";
+        return print;
     }
 }

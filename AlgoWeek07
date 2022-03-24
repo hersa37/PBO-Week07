@@ -1,19 +1,19 @@
 KantorCabang
+constant:
+	int maxPegawai=100;
 attribute:
 	string kodeCabang
 	Pegawai pimpinan
-	Pegawai[] pegawaiArray
+	Pegawai[] pegawai
 	int jumlahPegawai
-
 constructor()
-	this("",new Pegawai("-","-","Pimpinan"), new Pegawai[0])
+	this("",new Pegawai("-","-","Pimpinan"))
 
 constructor(string kode, Pegawai pimpinan)
 	kode_cabang=kode
 	if(pimpinan.getJabatan=="pimpinan")
 		this.pimpinan=pimpinan
-	else this.pimpinan=new Pegawai("-","-","pimpinan")
-	
+	else this.pimpinan=new Pegawai("-","-","pimpinan")	
 setKodeCabang(string kode)
 getKodeCabang()
 setPimpinan(Pegawai pimpinan)
@@ -22,22 +22,22 @@ setPimpinan(Pegawai pimpinan)
 getPimpinan()
 getJumlahPegawai()
 	return pegawaiArray.length
-setPegawaiArray(Pegawai[] pegawaiArray,int jumlahPegawai)
+setPegawaiArray(Pegawai[] pegawai,int jumlahPegawai)
 getPegawaiArray()
+addPegawai(
 toString()
-
+------------------------------------------------------------------------------------
 
 mainKancab
-constant:
-	int maxPegawai=100;
+
 main method
 	int jumlahPegawai
-	Pegawai[] pegawaiArray=new Pegawai[maxPegawai]
+	Pegawai[] pegawaiArray=new Pegawai[KantorCabang.maxPegawai]
 	
-	KantorCabang kc=new KantorCabang("B001", new Pegawai(), pegawaiArray, jumlahPegawai)
+	KantorCabang kc=new KantorCabang()
 	for(i=0; i<jumlahPegawai;i++)
 		pegawaiArray[i]=new Pegawai()
-		
+---------------------------------------------------------------------------------------		
 Class Kegiatan
 Attributes:
 	string kegiatan
@@ -47,9 +47,11 @@ setKegiatan()
 getKegiatan()
 setPoint()
 getPoint()
-
+--------------------------------------------------------------------------------------
 
 Class Mahasiswa
+Constants:
+	int MAX_KEGIATAN=5
 Attributes:
 	Kegiatan[] kegiatan
 	string nama
@@ -67,6 +69,22 @@ removeKegiatan(int index)
 	kegiatan[jumlahKegiatan-1]=null
 	jumlahKegiatan--
 getJumlahKegiatan()
+
+-------------------------------------------------------------------------------------
+Class MahasiswaMain
+Constant:
+	int MAX_MAHASISWA=100	
+main:
+	mhs=new Mahasiswa[MAX_MAHASISWA]
+	for(i=0;i<jumlahMahasiwa;i++)
+		input nama
+		mhs[i]=new Mahasiswa()
+		kg=new Kegiatan[Mahasiswa.MAX_KEGIATAN]
+		for(j=0;j<jumlahKegiatan;j++)
+			input namakeg
+			input point
+			kg[i]=new Kegiatan(namakeg, point)
+		mhs[i].setKegiatan(kg, jumlahkegiatan)
 	
 	
 	

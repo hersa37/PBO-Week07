@@ -5,9 +5,6 @@
 
 package pbo1.week07.KantorCabang;
 
-import java.time.*;
-import java.time.format.DateTimeFormatter;
-
 /**
  *
  * @author echa
@@ -20,17 +17,16 @@ public class Pegawai {
     private static String uniqueID="0";
     private String name;
     private String jabatan;
-    private LocalDate birthday;
     private int gaji;
     
     public Pegawai(){
-        this("", LocalDate.of(2000, 1, 31));
+        this("");
     }
     
-    public Pegawai(String name, LocalDate birthday){
+    public Pegawai(String name){
         employeeID=Pegawai.getUniqueID();
         this.name=name;
-        this.birthday=birthday;
+
     }
     
     public Pegawai(String name, String employeeID, String jabatan){
@@ -51,14 +47,6 @@ public class Pegawai {
         Pegawai.uniqueID=String.valueOf(uniqueID);
     }
     
-    public LocalDate getBirthday() {
-        return birthday;
-    }
-
-    public void setBirthday(LocalDate birthday) {
-        this.birthday = birthday;                
-    }
-    
     public String getName() {
         return name;
     }
@@ -70,7 +58,10 @@ public class Pegawai {
     public String getJabatan() {
         return jabatan;
     }
-
+    
+    /*
+    Checks if jabatan is listed. If not, set empty
+    */
     public void setJabatan(String jabatan) {
         switch(jabatan){
             case "pimpinan":case "teknisi":case "akuntan":
@@ -79,6 +70,9 @@ public class Pegawai {
         this.jabatan = "";
     }
     
+    /*
+    Static method to automatically set new ID each time a new pegawai is called
+    */
     private static String getUniqueID(){
         int id=Integer.parseInt(uniqueID);
         uniqueID=String.format("%04d", ++id);
@@ -96,9 +90,7 @@ public class Pegawai {
     @Override
     public String toString(){
         return "{ID: "+getEmployeeID()
-                +"; Name: "+getName()
-                +"; Birthday: "
-                +getBirthday().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"))
+                +"; Name: "+getName()                
                 +"}";
     }
 }
